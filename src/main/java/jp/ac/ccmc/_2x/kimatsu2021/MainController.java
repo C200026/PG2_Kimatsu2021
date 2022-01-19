@@ -34,13 +34,13 @@ public class MainController {
 	@PostMapping("/new")
 	public String createAccount(@ModelAttribute("account") Account account, RedirectAttributes redirectAttributes) {
 		service.save(account);
-        String message = "#" + account.getId() + "「" + account.getName() + "」を新規作成しました。";
-        redirectAttributes.addFlashAttribute("message", message);
+		String message = "#" + account.getId() + "「" + account.getName() + "」を新規作成しました。";
+		redirectAttributes.addFlashAttribute("message", message);
 		return "redirect:/";
 	}
 
 	@GetMapping("/edit/{id}")
-	public String showEditAccountPage(@PathVariable(name="id") int id, Model model) {
+	public String showEditAccountPage(@PathVariable(name = "id") int id, Model model) {
 		Account account = service.get(id);
 		model.addAttribute("account", account);
 		return "edit";
@@ -49,25 +49,33 @@ public class MainController {
 	@PostMapping("/edit")
 	public String saveEditData(@ModelAttribute("account") Account account, RedirectAttributes redirectAttributes) {
 		service.save(account);
-        String message = "#" + account.getId() + "「" + account.getName() + "」を編集しました。";
-        redirectAttributes.addFlashAttribute("message", message);
+		String message = "#" + account.getId() + "「" + account.getName() + "」を編集しました。";
+		redirectAttributes.addFlashAttribute("message", message);
 		return "redirect:/";
 	}
 
 	@GetMapping("/delete/{id}")
-	public String confirmDeleting(@PathVariable(name="id") int id, Model model) {
-		service.delete(id);
-        return "redirect:/";
+	public String confirmDeleting(@PathVariable(name = "id") int id, Model model) {
+		// service.delete(id);
+		// return "redirect:/";
+		Account account = service.get(id);
+		model.addAttribute("account", account);
+		return "delete";
 	}
 
 	@PostMapping("/delete")
 	public String deleteAccount(@ModelAttribute("account") Account account, RedirectAttributes redirectAttributes) {
+		// service.delete(account.getId());
+		// return "redirect:/";
 		service.delete(account.getId());
+		String message = "#" + account.getId() + "「" + account.getName() + "」を削除しました。";
+		redirectAttributes.addFlashAttribute("message", message);
 		return "redirect:/";
+
 	}
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+	@GetMapping("/login")
+	public String login() {
+		return "login";
+	}
 }
