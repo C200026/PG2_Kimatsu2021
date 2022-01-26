@@ -5,11 +5,11 @@
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-    <header class="text-center">
+    <header class="jumbotron text-center">
         <h1>新規作成</h1>
     </header>
 
-	<main>
+	<main class="container">
         <p>
             アカウントを新しく作成します。
         </p>
@@ -41,7 +41,7 @@
 			</table>
 		</form>
 		<form th:action="@{/logout}" method="post" class="text-center">
-            <input type="submit" value="ログアウト"/>
+            <input type="submit" value="ログアウト" class="btn btn-secondary">
         </form>
 	</main>
 

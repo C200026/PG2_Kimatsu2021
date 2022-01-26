@@ -5,12 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link th:href="@{/webjars/bootstrap/5.0.1/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/common.css}" rel="stylesheet">
     <title th:inline="text" th:text="${title}">タイトル</title>
 </head>
 
 <body>
     <h1>共通ヘッダー・フッター</h1>
-    <footer th:fragment="common-footer" class="text-center bg-light bg-gradient">
+    <footer th:fragment="common-footer" class="text-center bg-warning bg-gradient">
         <a th:href="@{/}">HOME</a>
         <script th:src="@{/webjars/bootstrap/5.0.1/js/bootstrap.bundle.min.js}"></script>
     </footer>

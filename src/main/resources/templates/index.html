@@ -6,11 +6,12 @@
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-    <header class="text-center">
+    <header class="jumbotron text-center">
         <h1>アカウント一覧</h1>
+		<img src="/message_sensei_arigatou.png" width="20%">
     </header>
 
-	<main>
+	<main class="container">
         <p th:if="${message}" th:text="${message}">
             メッセージ
         </p>
@@ -19,8 +20,8 @@
             <input type="button" onclick="location.href='/new';" value="新規アカウント作成" />
         </p>
 
-		<table class="table table-light table-striped">
-			<thead>
+		<table class="table table-light table-striped table-hover">
+			<thead class="thead-dark">
 				<th>ID</th>
 				<th>名前</th>
 				<th>クラス</th>

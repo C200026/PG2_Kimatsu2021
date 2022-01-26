@@ -3,7 +3,7 @@
 <!-- (1)共通headerで置き換える -->
 <head th:replace="./fragments/common :: common-header('ログイン画面')"> 
     <meta charset="UTF-8">    
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" >
     
 </head>
     <body>
@@ -15,10 +15,10 @@
             ログアウトしました。
         </p>
 
-        <form th:action="@{/login}" method="post">
-            <div><label> ユーザー名 : <input type="text" name="username"/> </label></div>
-            <div><label> パスワード: <input type="password" name="password"/> </label></div>
-            <div><input type="submit" value="ログイン"/></div>
+        <form th:action="@{/login}" method="post"class="text-center">
+            <div class="mb-3"><label> ユーザー名:  <input type="text" name="username" class="form-control"> </label></div>
+            <div class="mb-3"><label> パスワード:  <input type="password" name="password" class="form-control"> </label></div>
+            <div class="mb-3"><input type="submit" value="ログイン" class="btn btn-secondary"></div>
         </form>
 
         <footer th:replace="./fragments/common :: common-footer">
