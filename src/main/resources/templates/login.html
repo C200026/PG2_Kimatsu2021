@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/css/style.css" >
     
 </head>
-    <body>
+    <body class="text-center">
         <p th:if="${param.error}">
             IDまたはパスワードが間違っています。
         </p>
@@ -15,7 +15,7 @@
             ログアウトしました。
         </p>
 
-        <form th:action="@{/login}" method="post"class="text-center">
+        <form th:action="@{/login}" method="post">
             <div class="mb-3"><label> ユーザー名:  <input type="text" name="username" class="form-control"> </label></div>
             <div class="mb-3"><label> パスワード:  <input type="password" name="password" class="form-control"> </label></div>
             <div class="mb-3"><input type="submit" value="ログイン" class="btn btn-secondary"></div>
