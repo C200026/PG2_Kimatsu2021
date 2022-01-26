@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
+<!-- (1)共通headerで置き換える -->
+<head th:replace="./fragments/common :: common-header('アカウント一覧')"> 
     <meta charset="UTF-8">
-    <title>アカウント一覧</title>
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-    <header>
+    <header class="text-center">
         <h1>アカウント一覧</h1>
     </header>
 
@@ -19,7 +19,7 @@
             <input type="button" onclick="location.href='/new';" value="新規アカウント作成" />
         </p>
 
-		<table>
+		<table class="table table-light table-striped">
 			<thead>
 				<th>ID</th>
 				<th>名前</th>
@@ -47,5 +47,7 @@
 		<p th:if="${listAccounts.size() == 0}">データは存在しません。</p>
 
     </main>
+	<footer th:replace="./fragments/common :: common-footer"></footer>
+
 </body>
 </html>

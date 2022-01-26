@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
+<!-- (1)共通headerで置き換える -->
+<head th:replace="./fragments/common :: common-header('編集画面')"> 
+    <meta charset="UTF-8">    
+    <link rel="stylesheet" href="/css/style.css" />
+
     <meta charset="UTF-8">
-    <title>編集画面</title>
+    <!-- <title>編集画面</title> -->
     <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-    <header>
+    <header  class="text-center">
         <h1>編集画面</h1>
     </header>
 
@@ -16,7 +20,7 @@
         </p>
 
 		<form action="#" th:action="@{/edit}" th:object="${account}" method="post">
-			<table>
+			<table class="table table-light table-striped">
 				<tr>
 					<td>ID:<input type="hidden" th:field="*{id}"></td>
 					<td th:text="*{id}"></td>
@@ -49,13 +53,12 @@
                 <li th:if="${#fields.hasErrors('className')}"><strong>クラス</strong>：<span th:errors="*{className}"></span></li>
             </ul>
 		</form>
-		<form th:action="@{/logout}" method="post">
-            <input type="submit" value="ログアウト"/>
+		<form th:action="@{/logout}" method="post" class="text-center">
+            <input  class="text-center" type="submit" value="ログアウト"/ >
         </form>
 	</main>
 
-    <footer>
-        <a th:href="@{/}">Back</a> <br>
-    </footer>
+	<footer th:replace="./fragments/common :: common-footer"></footer>
+
 </body>
 </html>

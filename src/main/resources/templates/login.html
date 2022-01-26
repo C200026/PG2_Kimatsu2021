@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-    <head>
-        <title>ログイン画面</title>
-    </head>
+<!-- (1)共通headerで置き換える -->
+<head th:replace="./fragments/common :: common-header('ログイン画面')"> 
+    <meta charset="UTF-8">    
+    <link rel="stylesheet" href="/css/style.css" />
+    
+</head>
     <body>
         <p th:if="${param.error}">
             IDまたはパスワードが間違っています。
@@ -18,8 +21,10 @@
             <div><input type="submit" value="ログイン"/></div>
         </form>
 
+        <footer th:replace="./fragments/common :: common-footer">
         <p>
             <a th:href="@{/}">HOME</a>
         </p>
+        </footer>
     </body>
 </html>
