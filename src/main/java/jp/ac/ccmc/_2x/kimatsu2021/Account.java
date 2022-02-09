@@ -3,6 +3,7 @@ package jp.ac.ccmc._2x.kimatsu2021;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import lombok.Data;
 
@@ -13,8 +14,13 @@ public class Account {
 	@GeneratedValue
 	private Long id;
 
+	@NotNull
+
 	private String name;
+
+	@NotNull
 	private String className;
+	
 	private String tel;
 	private String address;
 
